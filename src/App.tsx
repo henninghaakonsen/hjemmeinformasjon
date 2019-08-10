@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Dekoratør from "./komponenter/Dekoratør/Dekoratør";
+import TemperaturPanel from "./komponenter/Målinger/TemperaturPanel/TemperaturPanel";
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+        <div>
+            <Dekoratør />
+            <div style={styles.content}>
+                <TemperaturPanel
+                    style={styles.temperaturPanel}
+                    interval={5000}
+                />
+            </div>
+        </div>
+    );
+};
 
+const styles = {
+    content: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateRows: "1fr 1fr 1fr",
+        margin: "1rem",
+        width: "100%"
+    },
+    temperaturPanel: {
+        gridArea: "1 / 3"
+    }
+};
 export default App;
