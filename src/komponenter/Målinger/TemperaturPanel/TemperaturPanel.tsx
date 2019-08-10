@@ -30,7 +30,6 @@ const TemperaturPanel: React.StatelessComponent<IProps> = ({
 }) => {
     const hentMålinger = () => {
         axios.get(`${apiIP}api/temperatures_now`).then(response => {
-            console.log(response.data);
             settMålinger(response.data);
         });
     };

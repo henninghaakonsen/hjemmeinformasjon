@@ -22,7 +22,7 @@ const styles = {
         gridTemplateColumns: "1fr 1fr 1fr",
         gridTemplateRows: "1fr 1fr 1fr",
         padding: "1rem",
-        width: "calc(100% - 2rem)"
+        width: "100%"
     },
     temperaturPanel: {
         gridArea: "1 / 3"
