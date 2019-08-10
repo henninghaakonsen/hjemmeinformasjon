@@ -4,8 +4,8 @@ import { IMåling } from "../../../typer/temperatur";
 import Card from "@material-ui/core/Card";
 import { CardHeader, CardContent } from "@material-ui/core";
 
-const apiIP = "84.208.191.92";
-//const apiIP = "192.168.1.31";
+const apiIP = "https://84.208.191.92";
+//const apiIP = "http://192.168.1.31";
 
 interface IProps {
     interval: number;
