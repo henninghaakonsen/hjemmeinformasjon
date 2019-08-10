@@ -4,7 +4,7 @@ import { IMåling } from "../../../typer/temperatur";
 import Card from "@material-ui/core/Card";
 import { CardHeader, CardContent } from "@material-ui/core";
 
-const apiIP = "https://84.208.191.92";
+const apiIP = "https://84.208.176.1";
 //const apiIP = "http://192.168.1.31";
 
 interface IProps {
@@ -40,12 +40,7 @@ const TemperaturPanel: React.StatelessComponent<IProps> = ({
         hentMålinger();
 
         const setinterval = setInterval(() => {
-            axios
-                .get("http://192.168.1.31:9000/api/temperatures_now")
-                .then(response => {
-                    console.log(response.data);
-                    settMålinger(response.data);
-                });
+            hentMålinger();
         }, interval);
 
         return () => clearInterval(setinterval);
