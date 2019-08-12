@@ -4,7 +4,7 @@ import TemperaturPanel from "./komponenter/Målinger/TemperaturPanel/TemperaturP
 import RutetidPanel from "./komponenter/Rutetider/RutetidPanel";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-const Background = require("./IMG_3677.JPG");
+const Background = require("./IMG_3677.jpg");
 
 const client = new ApolloClient({
     uri: "https://api.entur.io/journey-planner/v2/graphql",
