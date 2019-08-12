@@ -2,7 +2,8 @@ import * as React from "react";
 import axios from "axios";
 import { IMåling } from "../../../typer/temperatur";
 import Card from "@material-ui/core/Card";
-import { CardHeader, CardContent } from "@material-ui/core";
+import { CardHeader, CardContent, Typography } from "@material-ui/core";
+import moment from "moment";
 
 const apiIP = "https://hjemmeinformasjon-server.herokuapp.com/";
 //const apiIP = "http://192.168.1.31";
@@ -45,6 +46,7 @@ const TemperaturPanel: React.StatelessComponent<IProps> = ({
         return () => clearInterval(setinterval);
     }, [interval]);
 
+    const målingListe = Object.values(målinger);
     return (
         <Card
             style={{
@@ -54,7 +56,12 @@ const TemperaturPanel: React.StatelessComponent<IProps> = ({
         >
             <CardHeader title={"Temperaturer"} />
             <CardContent>
-                {Object.values(målinger).map(måling => {
+                <Typography color="textSecondary">
+                    {`Sist oppdatert: ${moment(
+                        målingListe[0] && målingListe[0].timestamp
+                    ).format("HH:mm")}`}
+                </Typography>
+                {målingListe.map(måling => {
                     const temperatur = parseFloat(måling.temperature);
                     return (
                         <div
