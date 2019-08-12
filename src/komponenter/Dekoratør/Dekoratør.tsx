@@ -34,9 +34,7 @@ const Dekoratør: React.StatelessComponent = () => {
 
 const styles: any = {
     dekoratør: {
-        backgroundColor: "#3E3832",
         display: "flex",
-        justifyContent: "space-between",
         height: "2rem",
         padding: "1rem 1rem 1rem 1rem",
         width: "100%"

@@ -4,6 +4,7 @@ import TemperaturPanel from "./komponenter/Målinger/TemperaturPanel/TemperaturP
 import RutetidPanel from "./komponenter/Rutetider/RutetidPanel";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+const Background = require("./IMG_3677.JPG");
 
 const client = new ApolloClient({
     uri: "https://api.entur.io/journey-planner/v2/graphql",
@@ -15,13 +16,15 @@ const client = new ApolloClient({
 const App: React.FC = () => {
     return (
         <ApolloProvider client={client}>
-            <Dekoratør />
             <div style={styles.content}>
-                <TemperaturPanel
-                    style={styles.temperaturPanel}
-                    interval={5000}
-                />
-                <RutetidPanel style={styles.rutetidPanel} interval={5000} />
+                <div style={styles.grid}>
+                    <TemperaturPanel
+                        style={styles.temperaturPanel}
+                        interval={5000}
+                    />
+                    <RutetidPanel style={styles.rutetidPanel} interval={5000} />
+                </div>
+                <Dekoratør />
             </div>
         </ApolloProvider>
     );
@@ -29,11 +32,15 @@ const App: React.FC = () => {
 
 const styles = {
     content: {
+        background: `url(${Background}) no-repeat center center fixed`,
+        backgroundSize: "cover",
+        padding: "1rem"
+    },
+    grid: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
         gridTemplateRows: "1fr 1fr 1fr",
-        padding: "1rem",
-        width: "calc(100% - 2rem)"
+        width: "100%"
     },
     temperaturPanel: {
         gridArea: "1 / 3"
